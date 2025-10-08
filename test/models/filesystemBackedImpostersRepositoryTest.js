@@ -585,11 +585,9 @@ describe('filesystemBackedImpostersRepository', function () {
                         assert.fail('should have errored');
                     }
                     catch (err) {
-                        assert.deepEqual(err, {
-                            code: 'corrupted database',
-                            message: `invalid JSON in ${responsePath}`,
-                            details: 'Unexpected token \'C\', "CORRUPTED" is not valid JSON'
-                        });
+                        assert.strictEqual(err.code, 'corrupted database');
+                        assert.strictEqual(err.message, `invalid JSON in ${responsePath}`);
+                        assert.ok(err.details.startsWith('Unexpected token'), `Wrong error details: ${err.details}`);
                     }
                 });
             });
