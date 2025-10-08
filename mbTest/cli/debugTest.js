@@ -32,7 +32,7 @@ describe('--debug', function () {
                 .replace(/"processingTime":\d+/g, '"processingTime":0')
                 .replace(/"requestFrom":"[a-f:.\d]+"/g, '"requestFrom":"HERE"')
                 .replace(/::ffff:127.0.0.1/g, '::1') // node v18 switched to native IPv6
-                .replace(/"ip":"127\.0\.0\.1"/g, '"ip":"::1"'),
+                .replace(/"ip":"127\.0\.0\.1"/g, '"ip":"::1"'), // normalize for different OSes
             actualWithoutEphemeralData = JSON.parse(scrubbed);
 
         assert.deepEqual(actualWithoutEphemeralData, [{
@@ -72,7 +72,7 @@ describe('--debug', function () {
                 .replace(/"processingTime":\d+/g, '"processingTime":0')
                 .replace(/"requestFrom":"[a-f:.\d]+"/g, '"requestFrom":"HERE"')
                 .replace(/::ffff:127.0.0.1/g, '::1') // node v18 switched to native IPv6
-                .replace(/"ip":"127\.0\.0\.1"/g, '"ip":"::1"'),
+                .replace(/"ip":"127\.0\.0\.1"/g, '"ip":"::1"'), // normalize for different OSes
             actualWithoutEphemeralData = JSON.parse(scrubbed),
             requestHeaders = { accept: 'application/json', Host: `localhost:${serverPort}`, Connection: 'keep-alive' };
 
