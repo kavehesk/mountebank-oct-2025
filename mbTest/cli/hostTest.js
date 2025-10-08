@@ -152,7 +152,8 @@ describe('--host', function () {
             assert.fail(`should not have connected (hostname: ${host})`);
         }
         catch (error) {
-            assert.strictEqual(error.code, 'ECONNREFUSED');
+            // ECONNREFUSED is expected, but some OS/Node versions return ESOCKET
+            assert.ok(['ECONNREFUSED', 'ESOCKET'].indexOf(error.code) >= 0, `Unexpected error code: ${error.code}`);
         }
     });
 
@@ -183,7 +184,8 @@ describe('--host', function () {
             assert.fail('should not have connected to localhost');
         }
         catch (error) {
-            assert.strictEqual(error.code, 'ECONNREFUSED');
+            // ECONNREFUSED is expected, but some OS/Node versions return ESOCKET
+            assert.ok(['ECONNREFUSED', 'ESOCKET'].indexOf(error.code) >= 0, `Unexpected error code: ${error.code}`);
         }
     });
 
@@ -209,7 +211,8 @@ describe('--host', function () {
             assert.fail('should not have connected to localhost');
         }
         catch (error) {
-            assert.strictEqual(error.code, 'ECONNREFUSED');
+            // ECONNREFUSED is expected, but some OS/Node versions return ESOCKET
+            assert.ok(['ECONNREFUSED', 'ESOCKET'].indexOf(error.code) >= 0, `Unexpected error code: ${error.code}`);
         }
     });
 
