@@ -41,5 +41,11 @@
         "mb.js",
         "package.json",
         "package-lock.json"
-    ]
+    ],
+    "overrides": {
+        "cross-spawn": "7.0.5",
+        "mem": "9.0.2",
+        "nanoid": "5.0.9",
+        "yargs-parser": "21.1.1"
+    }
 }
