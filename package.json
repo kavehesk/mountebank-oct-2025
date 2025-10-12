@@ -101,6 +101,7 @@
     "@mbtest/mountebank-formatters": {
       "ejs": "3.1.10"
     },
-    "nodemailer": "^7.0.7"
+    "nodemailer": "^7.0.7",
+    "serialize-javascript": "6.0.2"
   }
 }
