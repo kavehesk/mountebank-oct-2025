@@ -84,7 +84,7 @@
     "jsdom": "26.1.0",
     "license-checker": "25.0.1",
     "mbTest": "file:./mbTest",
-    "mocha": "10.2.0",
+    "mocha": "^11.7.5",
     "mocha-multi-reporters": "1.5.1",
     "nc": "^1.0.3",
     "nyc": "^17.1.0",
@@ -99,6 +99,9 @@
   "snyk": true,
   "overrides": {
     "nodemailer": "^7.0.7",
-    "serialize-javascript": "^6.0.2"
+    "serialize-javascript": "^6.0.2",
+    "@mbtest/mountebank-formatters": {
+      "ejs": "^3.1.10"
+    }
   }
 }
